@@ -1,27 +1,23 @@
 locals {
-  network_name                   = "${var.project_name}-vpc"
-  subnet_name                    = "${var.project_name}-${var.region}-01"
-  secondary_ranges_pods_name     = "${var.project_name}-${var.region}-01-pods"
-  secondary_ranges_services_name = "${var.project_name}-${var.region}-01-services"
-  gke_name                       = "${var.project_name}-gke"
-  node_pools_name                = "${var.project_name}-node-pool-main"
-  cloud_router_name              = "${var.project_name}-router"
+  network_name                   = "${module.project.project_name}-vpc"
+  subnet_name                    = "${module.project.project_name}-${var.region}-01"
+  secondary_ranges_pods_name     = "${module.project.project_name}-${var.region}-01-pods"
+  secondary_ranges_services_name = "${module.project.project_name}-${var.region}-01-services"
+  gke_name                       = "${module.project.project_name}-gke"
+  node_pools_name                = "${module.project.project_name}-node-pool-main"
+  cloud_router_name              = "${module.project.project_name}-router"
 }
 
 module "project" {
   source                  = "terraform-google-modules/project-factory/google"
-  random_project_id       = true
-  name                    = var.project_name
-  org_id                  = var.organization_id
-  billing_account         = var.billing_account
-  folder_id               = var.folder_id
+  project_id              = var.project_id
   default_service_account = "deprivilege"
-  activate_apis           = ["compute.googleapis.com", "container.googleapis.com", "dns.googleapis.com"]
+  activate_apis           = ["compute.googleapis.com", "container.googleapis.com"]
 }
 
 module "network" {
   source       = "terraform-google-modules/network/google"
-  project_id   = module.project.project_id
+  project_id   = var.project_id
   network_name = local.network_name
 
   subnets = [
@@ -30,7 +26,7 @@ module "network" {
       subnet_ip             = "10.0.0.0/24"
       subnet_region         = var.region
       subnet_private_access = "true"
-    },
+    }
   ]
 
   secondary_ranges = {
@@ -42,14 +38,18 @@ module "network" {
       {
         range_name    = local.secondary_ranges_services_name
         ip_cidr_range = "10.64.0.0/16"
-      },
+      }
     ]
   }
+
+  depends_on = [
+    module.project
+  ]
 }
 
 module "gke" {
   source                            = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
-  project_id                        = module.project.project_id
+  project_id                        = var.project_id
   name                              = local.gke_name
   region                            = var.region
   zones                             = var.zones
@@ -70,19 +70,7 @@ module "gke" {
   remove_default_node_pool          = true
   add_master_webhook_firewall_rules = true
 
-  node_pools = [
-    {
-      name               = local.node_pools_name
-      machine_type       = "e2-small"
-      disk_size_gb       = 30
-      auto_upgrade       = false
-      preemptible        = true
-      initial_node_count = 1
-      node_count         = 2
-      node_locations     = join(",", var.zones)
-      autoscaling        = false
-    }
-  ]
+  node_pools = var.node_pools
 
   node_pools_oauth_scopes = {
     all = [
