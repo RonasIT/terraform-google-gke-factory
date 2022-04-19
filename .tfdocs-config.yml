@@ -1,0 +1,19 @@
+formatter: "markdown table" # this is required
+
+sections:
+  show-all: true  # deprecated in v0.13.0, removed in v0.15.0
+
+output:
+  file: README.md
+  mode: inject     
+
+sort:
+  enabled: true
+  by: required
+
+settings:
+  indent: 4
+  escape: false
+  default: false
+  required: false
+  type: true
