@@ -95,6 +95,7 @@ module "gke" {
     max_memory_gb = 8,
     min_cpu_cores = 1,
     min_memory_gb = 2
+    gpu_resources: []
   }
 
   node_pools = [
