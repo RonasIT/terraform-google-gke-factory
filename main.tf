@@ -1,21 +1,35 @@
 locals {
-  network_name                   = "${module.project.project_name}-vpc"
-  subnet_name                    = "${module.project.project_name}-${var.region}-01"
-  secondary_ranges_pods_name     = "${module.project.project_name}-${var.region}-01-pods"
-  secondary_ranges_services_name = "${module.project.project_name}-${var.region}-01-services"
-  gke_name                       = "${module.project.project_name}-gke"
-  node_pools_name                = "${module.project.project_name}-node-pool-main"
-  cloud_router_name              = "${module.project.project_name}-router"
-  ci_service_account_name        = "ci"
+  network_name                   = "${var.project_id}-vpc"
+  subnet_name                    = "${var.project_id}-${var.cluster_region}-01"
+  secondary_ranges_pods_name     = "${var.project_id}-${var.cluster_region}-01-pods"
+  secondary_ranges_services_name = "${var.project_id}-${var.cluster_region}-01-services"
+  gke_name                       = "${var.project_id}-gke"
+  node_pools_name                = "${var.project_id}-node-pool-main"
+  cloud_router_name              = "${var.project_id}-router"
+  ci_service_account_name        = "ci-service-account"
 }
 
-module "project" {
-  source  = "terraform-google-modules/project-factory/google"
-  version = "~> 13.0.0"
+data "google_project" "project" {
+  project_id = var.project_id
+}
 
-  project_id              = var.project_id
-  default_service_account = "deprivilege"
-  activate_apis           = ["compute.googleapis.com", "container.googleapis.com"]
+resource "google_project_default_service_accounts" "deprivilege_default_service_account" {
+  project = var.project_id
+  action = "DEPRIVILEGE"
+}
+
+resource "google_project_service" "enable_compute_api" {
+  project = var.project_id
+  service = "compute.googleapis.com"
+}
+
+resource "google_project_service" "enable_container_api" {
+  project = var.project_id
+  service = "container.googleapis.com"
+
+  depends_on = [
+    resource.google_project_service.enable_compute_api
+  ]
 }
 
 module "network" {
@@ -48,7 +62,7 @@ module "network" {
   }
 
   depends_on = [
-    module.project
+    resource.google_project_service.enable_container_api
   ]
 }
 
@@ -82,7 +96,7 @@ module "gke" {
       disk_size_gb   = var.node_pool_disk_size
       auto_upgrade   = var.node_pool_autoupgrade
       preemptible    = var.node_pool_preemptible
-      node_locations = join(",", var.zones)
+      node_locations = join(",", var.cluster_zones)
       min_count      = 1
       max_count      = var.node_pool_nodes_max_count
     }
@@ -131,7 +145,7 @@ module "cloud-nat" {
 
 resource "google_compute_address" "ingress_ip_address" {
   name    = "nginx-controller"
-  project = module.project.project_id
+  project = var.project_id
   region  = var.cluster_region
 
   depends_on = [
@@ -177,6 +191,6 @@ resource "google_service_account_key" "ci_key" {
 
 resource "google_project_iam_binding" "compute_account_storage_iam" {
   role    = "roles/storage.objectViewer"
-  members = ["serviceAccount:${module.project.project_number}-compute@developer.gserviceaccount.com"]
+  members = ["serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"]
   project = var.project_id
 }
