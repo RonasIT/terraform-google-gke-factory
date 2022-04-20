@@ -1,35 +1,46 @@
 variable "project_id" {
   description = "The ID of the project"
+  type        = string
 }
 
-variable "ci_serice_account_name" {
-  description = "The name of service to use for CI/CD"
+variable "cluster_region" {
+  description = "The region of the cluster"
+  type        = string
+  default     = "us-central1"
 }
 
-variable "node_pools" {
-  description = "Node pools"
-  type        = list(map(string))
-  default = [
-    {
-      name               = var.project_id
-      machine_type       = "e2-small"
-      disk_size_gb       = 30
-      auto_upgrade       = false
-      preemptible        = true
-      initial_node_count = 1
-      node_count         = 2
-      node_locations     = join(",", var.zones)
-      autoscaling        = false
-    }
-  ]
+variable "cluster_zones" {
+  description = "The zones of the cluster"
+  type        = list(string)
+  default     = ["us-central1-a"]
 }
 
-# GKE
-
-variable "region" {
-  description = "Cluster region"
+variable "node_pool_machine_type" {
+  description = "Machine type for node pools"
+  type        = string
+  default     = "n1-standard-2"
 }
 
-variable "zones" {
-  description = "Cluster zones"
+variable "node_pool_disk_size" {
+  description = "Disk size for node pools"
+  type        = number
+  default     = 30
+}
+
+variable "node_pool_autoupgrade" {
+  description = "Autoupgrade for node pools"
+  type        = bool
+  default     = false
+}
+
+variable "node_pool_preemptible" {
+  description = "Preemptible for node pools"
+  type        = bool
+  default     = false
+}
+
+variable "node_pool_nodes_max_count" {
+  description = "Maximum number of nodes in node pools"
+  type        = number
+  default     = 3
 }
