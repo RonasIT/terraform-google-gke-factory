@@ -212,4 +212,8 @@ resource "google_project_iam_binding" "compute_account_storage_iam" {
   role    = "roles/storage.objectViewer"
   members = ["serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"]
   project = var.project_id
+
+  depends_on = [
+    resource.google_project_service.enable_container_api
+  ]
 }
