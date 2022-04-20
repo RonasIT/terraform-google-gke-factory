@@ -90,7 +90,7 @@ module "gke" {
   add_master_webhook_firewall_rules = true
 
   cluster_autoscaling = {
-    enabled = true
+    enabled       = true
     max_cpu_cores = 4,
     max_memory_gb = 8,
     min_cpu_cores = 1,
