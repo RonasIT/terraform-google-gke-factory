@@ -44,7 +44,7 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.18.0 |
+| <a name="provider_google"></a> [google](#provider_google) | ~> 4.5 |
 
 #### Modules
 
