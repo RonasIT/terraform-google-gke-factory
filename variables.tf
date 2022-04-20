@@ -44,3 +44,9 @@ variable "node_pool_nodes_max_count" {
   type        = number
   default     = 3
 }
+
+variable "cluster_issuer_email" {
+  description = "The email of the cluster issuer"
+  type        = string
+  default     = "admin@ronasit.com"
+}

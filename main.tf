@@ -15,7 +15,7 @@ data "google_project" "project" {
 
 resource "google_project_default_service_accounts" "deprivilege_default_service_account" {
   project = var.project_id
-  action = "DEPRIVILEGE"
+  action  = "DEPRIVILEGE"
 }
 
 resource "google_project_service" "enable_compute_api" {
@@ -153,12 +153,31 @@ resource "google_compute_address" "ingress_ip_address" {
   ]
 }
 
+module "cert_manager" {
+  source  = "terraform-iaac/cert-manager/kubernetes"
+  version = "~> 2.4.2"
+
+  cluster_issuer_email = var.cluster_issuer_email
+}
+
 module "nginx-controller" {
   source  = "terraform-iaac/nginx-controller/helm"
   version = "~> 2.0.2"
 
   ip_address = google_compute_address.ingress_ip_address.address
   atomic     = true
+  additional_set = [
+    {
+      name = "cert-manager\\.io/cluster-issuer"
+      value = module.cert_manager.cluster_issuer_name
+      type  = "string"
+    }
+  ]
+
+  depends_on = [
+    resource.google_compute_address.ingress_ip_address,
+    module.cert_manager
+  ]
 }
 
 resource "google_service_account" "ci" {
