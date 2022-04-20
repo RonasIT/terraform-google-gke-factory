@@ -18,7 +18,7 @@ variable "cluster_zones" {
 variable "node_pool_machine_type" {
   description = "Machine type for node pools"
   type        = string
-  default     = "n1-standard-2"
+  default     = "n1-standard-1"
 }
 
 variable "node_pool_disk_size" {
