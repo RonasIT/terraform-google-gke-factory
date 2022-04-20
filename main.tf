@@ -95,7 +95,7 @@ module "gke" {
     max_memory_gb = var.cluster_max_memory_gb,
     min_cpu_cores = var.cluster_min_cpu_cores,
     min_memory_gb = var.cluster_min_memory_gb
-    gpu_resources : []
+    gpu_resources = []
   }
 
   node_pools = [
