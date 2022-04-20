@@ -91,11 +91,11 @@ module "gke" {
 
   cluster_autoscaling = {
     enabled       = true
-    max_cpu_cores = 4,
-    max_memory_gb = 8,
-    min_cpu_cores = 1,
-    min_memory_gb = 2
-    gpu_resources: []
+    max_cpu_cores = variable.cluster_max_cpu_cores,
+    max_memory_gb = variable.cluster_max_memory_gb,
+    min_cpu_cores = variable.cluster_min_cpu_cores,
+    min_memory_gb = variable.cluster_min_memory_gb
+    gpu_resources : []
   }
 
   node_pools = [
