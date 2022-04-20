@@ -44,12 +44,13 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | ~> 4.5 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.18.0 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_cert_manager"></a> [cert_manager](#module_cert_manager) | terraform-iaac/cert-manager/kubernetes | ~> 2.4.2 |
 | <a name="module_cloud-nat"></a> [cloud-nat](#module_cloud-nat) | terraform-google-modules/cloud-nat/google | ~> 2.2.0 |
 | <a name="module_cloud_router"></a> [cloud_router](#module_cloud_router) | terraform-google-modules/cloud-router/google | ~> 1.3.0 |
 | <a name="module_gke"></a> [gke](#module_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | ~> 20.0.0 |
@@ -78,6 +79,7 @@ terraform-docs -c .tfdocs-config.yml .
 | Name | Description | Type |
 |------|-------------|------|
 | <a name="input_project_id"></a> [project_id](#input_project_id) | The ID of the project | `string` |
+| <a name="input_cluster_issuer_email"></a> [cluster_issuer_email](#input_cluster_issuer_email) | The email of the cluster issuer | `string` |
 | <a name="input_cluster_region"></a> [cluster_region](#input_cluster_region) | The region of the cluster | `string` |
 | <a name="input_cluster_zones"></a> [cluster_zones](#input_cluster_zones) | The zones of the cluster | `list(string)` |
 | <a name="input_node_pool_autoupgrade"></a> [node_pool_autoupgrade](#input_node_pool_autoupgrade) | Autoupgrade for node pools | `bool` |
