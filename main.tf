@@ -158,6 +158,16 @@ module "cert_manager" {
   version = "~> 2.4.2"
 
   cluster_issuer_email = var.cluster_issuer_email
+
+  solvers = [
+    {
+      http01 = {
+        ingress = {
+          class = "nginx"
+        }
+      }
+    }
+  ]
 }
 
 module "nginx-controller" {
@@ -168,7 +178,7 @@ module "nginx-controller" {
   atomic     = true
   additional_set = [
     {
-      name = "cert-manager\\.io/cluster-issuer"
+      name  = "cert-manager\\.io/cluster-issuer"
       value = module.cert_manager.cluster_issuer_name
       type  = "string"
     }
