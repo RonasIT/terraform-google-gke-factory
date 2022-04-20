@@ -37,25 +37,25 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 1.1 |
-| <a name="requirement_google"></a> [google](#requirement_google) | ~> 4.5 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.5 |
 
 #### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | ~> 4.5 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 4.5 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cert_manager"></a> [cert_manager](#module_cert_manager) | terraform-iaac/cert-manager/kubernetes | ~> 2.4.2 |
-| <a name="module_cloud-nat"></a> [cloud-nat](#module_cloud-nat) | terraform-google-modules/cloud-nat/google | ~> 2.2.0 |
-| <a name="module_cloud_router"></a> [cloud_router](#module_cloud_router) | terraform-google-modules/cloud-router/google | ~> 1.3.0 |
-| <a name="module_gke"></a> [gke](#module_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | ~> 20.0.0 |
-| <a name="module_network"></a> [network](#module_network) | terraform-google-modules/network/google | ~> 5.0.0 |
-| <a name="module_nginx-controller"></a> [nginx-controller](#module_nginx-controller) | terraform-iaac/nginx-controller/helm | ~> 2.0.2 |
+| <a name="module_cert_manager"></a> [cert\_manager](#module\_cert\_manager) | terraform-iaac/cert-manager/kubernetes | ~> 2.4.2 |
+| <a name="module_cloud-nat"></a> [cloud-nat](#module\_cloud-nat) | terraform-google-modules/cloud-nat/google | ~> 2.2.0 |
+| <a name="module_cloud_router"></a> [cloud\_router](#module\_cloud\_router) | terraform-google-modules/cloud-router/google | ~> 1.3.0 |
+| <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | ~> 20.0.0 |
+| <a name="module_network"></a> [network](#module\_network) | terraform-google-modules/network/google | ~> 5.0.0 |
+| <a name="module_nginx-controller"></a> [nginx-controller](#module\_nginx-controller) | terraform-iaac/nginx-controller/helm | ~> 2.0.2 |
 
 #### Resources
 
@@ -76,24 +76,24 @@ terraform-docs -c .tfdocs-config.yml .
 
 #### Inputs
 
-| Name | Description | Type |
-|------|-------------|------|
-| <a name="input_project_id"></a> [project_id](#input_project_id) | The ID of the project | `string` |
-| <a name="input_cluster_issuer_email"></a> [cluster_issuer_email](#input_cluster_issuer_email) | The email of the cluster issuer | `string` |
-| <a name="input_cluster_region"></a> [cluster_region](#input_cluster_region) | The region of the cluster | `string` |
-| <a name="input_cluster_zones"></a> [cluster_zones](#input_cluster_zones) | The zones of the cluster | `list(string)` |
-| <a name="input_node_pool_autoupgrade"></a> [node_pool_autoupgrade](#input_node_pool_autoupgrade) | Autoupgrade for node pools | `bool` |
-| <a name="input_node_pool_disk_size"></a> [node_pool_disk_size](#input_node_pool_disk_size) | Disk size for node pools | `number` |
-| <a name="input_node_pool_machine_type"></a> [node_pool_machine_type](#input_node_pool_machine_type) | Machine type for node pools | `string` |
-| <a name="input_node_pool_nodes_max_count"></a> [node_pool_nodes_max_count](#input_node_pool_nodes_max_count) | Maximum number of nodes in node pools | `number` |
-| <a name="input_node_pool_preemptible"></a> [node_pool_preemptible](#input_node_pool_preemptible) | Preemptible for node pools | `bool` |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project | `string` | n/a | yes |
+| <a name="input_cluster_issuer_email"></a> [cluster\_issuer\_email](#input\_cluster\_issuer\_email) | The email of the cluster issuer | `string` | `"admin@ronasit.com"` | no |
+| <a name="input_cluster_region"></a> [cluster\_region](#input\_cluster\_region) | The region of the cluster | `string` | `"us-central1"` | no |
+| <a name="input_cluster_zones"></a> [cluster\_zones](#input\_cluster\_zones) | The zones of the cluster | `list(string)` | <pre>[<br>  "us-central1-a"<br>]</pre> | no |
+| <a name="input_node_pool_autoupgrade"></a> [node\_pool\_autoupgrade](#input\_node\_pool\_autoupgrade) | Autoupgrade for node pools | `bool` | `false` | no |
+| <a name="input_node_pool_disk_size"></a> [node\_pool\_disk\_size](#input\_node\_pool\_disk\_size) | Disk size for node pools | `number` | `30` | no |
+| <a name="input_node_pool_machine_type"></a> [node\_pool\_machine\_type](#input\_node\_pool\_machine\_type) | Machine type for node pools | `string` | `"n1-standard-1"` | no |
+| <a name="input_node_pool_nodes_max_count"></a> [node\_pool\_nodes\_max\_count](#input\_node\_pool\_nodes\_max\_count) | Maximum number of nodes in node pools | `number` | `3` | no |
+| <a name="input_node_pool_preemptible"></a> [node\_pool\_preemptible](#input\_node\_pool\_preemptible) | Preemptible for node pools | `bool` | `false` | no |
 
 #### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ci_private_key"></a> [ci_private_key](#output_ci_private_key) | The private key of the CI service account |
-| <a name="output_cluster_name"></a> [cluster_name](#output_cluster_name) | The name of the cluster |
-| <a name="output_ingress_ip_address"></a> [ingress_ip_address](#output_ingress_ip_address) | The IP address of the ingress |
-| <a name="output_project_id"></a> [project_id](#output_project_id) | The ID of the project |
+| <a name="output_ci_private_key"></a> [ci\_private\_key](#output\_ci\_private\_key) | The private key of the CI service account |
+| <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | The name of the cluster |
+| <a name="output_ingress_ip_address"></a> [ingress\_ip\_address](#output\_ingress\_ip\_address) | The IP address of the ingress |
+| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The ID of the project |
 <!-- END_TF_DOCS -->
