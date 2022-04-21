@@ -207,6 +207,12 @@ resource "google_project_iam_binding" "ci_service_account_editor_iam" {
   project = var.project_id
 }
 
+resource "google_project_iam_binding" "ci_service_account_token_creator_iam" {
+  role    = "roles/iam.serviceAccountTokenCreator"
+  members = ["serviceAccount:${google_service_account.ci_service_account.email}"]
+  project = var.project_id
+}
+
 resource "google_service_account_key" "ci_service_account_key" {
   service_account_id = google_service_account.ci_service_account.id
 }
