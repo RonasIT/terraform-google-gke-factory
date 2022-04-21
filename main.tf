@@ -144,7 +144,7 @@ module "cloud_router" {
   ]
 }
 
-module "cloud-nat" {
+module "cloud_nat" {
   source  = "terraform-google-modules/cloud-nat/google"
   version = "~> 2.2.0"
 

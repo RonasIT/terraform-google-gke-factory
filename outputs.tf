@@ -19,7 +19,7 @@ output "cluster_zones" {
 }
 
 output "ci_email" {
-  value       = google_service_account.ci.email
+  value       = google_service_account.ci_service_account.email
   description = "The email of the CI service account"
 }
 
