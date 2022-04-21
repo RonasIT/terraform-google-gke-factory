@@ -48,7 +48,6 @@ variable "node_pool_nodes_max_count" {
 variable "cluster_issuer_email" {
   description = "The email of the cluster issuer"
   type        = string
-  default     = "admin@ronasit.com"
 }
 
 variable "cluster_max_cpu_cores" {
