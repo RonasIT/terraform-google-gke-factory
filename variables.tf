@@ -49,27 +49,3 @@ variable "cluster_issuer_email" {
   description = "The email of the cluster issuer"
   type        = string
 }
-
-variable "cluster_max_cpu_cores" {
-  description = "Maximum number of CPU cores"
-  type        = number
-  default     = 2
-}
-
-variable "cluster_max_memory_gb" {
-  description = "Maximum memory in GB"
-  type        = number
-  default     = 4
-}
-
-variable "cluster_min_cpu_cores" {
-  description = "Minimum number of CPU cores"
-  type        = number
-  default     = 1
-}
-
-variable "cluster_min_memory_gb" {
-  description = "Minimum memory in GB"
-  type        = number
-  default     = 1
-}

@@ -94,15 +94,6 @@ module "gke" {
   remove_default_node_pool          = true
   add_master_webhook_firewall_rules = true
 
-  cluster_autoscaling = {
-    enabled       = true
-    max_cpu_cores = var.cluster_max_cpu_cores,
-    max_memory_gb = var.cluster_max_memory_gb,
-    min_cpu_cores = var.cluster_min_cpu_cores,
-    min_memory_gb = var.cluster_min_memory_gb
-    gpu_resources = []
-  }
-
   node_pools = [
     {
       name           = local.node_pools_name
