@@ -18,6 +18,11 @@ resource "google_project_default_service_accounts" "deprivilege_default_service_
   action  = "DEPRIVILEGE"
 }
 
+resource "google_project_service" "enable_cloud_resource_manager_api" {
+  project = var.project_id
+  service = "cloudresourcemanager.googleapis.com"
+}
+
 resource "google_project_service" "enable_compute_api" {
   project = var.project_id
   service = "compute.googleapis.com"
@@ -205,6 +210,12 @@ resource "google_service_account" "ci" {
   project      = var.project_id
 }
 
+resource "google_project_iam_binding" "ci_account_compute_iam" {
+  role    = "roles/compute.admin"
+  members = ["serviceAccount:${google_service_account.ci.email}"]
+  project = var.project_id
+}
+
 resource "google_project_iam_binding" "ci_account_container_iam" {
   role    = "roles/container.admin"
   members = ["serviceAccount:${google_service_account.ci.email}"]
@@ -219,6 +230,12 @@ resource "google_project_iam_binding" "ci_account_storage_iam" {
 
 resource "google_project_iam_binding" "ci_account_token_iam" {
   role    = "roles/iam.serviceAccountTokenCreator"
+  members = ["serviceAccount:${google_service_account.ci.email}"]
+  project = var.project_id
+}
+
+resource "google_project_iam_binding" "ci_account_browser_iam" {
+  role    = "roles/browser"
   members = ["serviceAccount:${google_service_account.ci.email}"]
   project = var.project_id
 }
