@@ -204,44 +204,20 @@ module "nginx-controller" {
   ]
 }
 
-resource "google_service_account" "ci" {
+resource "google_service_account" "ci_service_account" {
   account_id   = local.ci_service_account_name
   display_name = local.ci_service_account_name
   project      = var.project_id
 }
 
-resource "google_project_iam_binding" "ci_account_compute_iam" {
-  role    = "roles/compute.admin"
-  members = ["serviceAccount:${google_service_account.ci.email}"]
+resource "google_project_iam_binding" "ci_service_account_editor_iam" {
+  role    = "roles/editor"
+  members = ["serviceAccount:${google_service_account.ci_service_account.email}"]
   project = var.project_id
 }
 
-resource "google_project_iam_binding" "ci_account_container_iam" {
-  role    = "roles/container.admin"
-  members = ["serviceAccount:${google_service_account.ci.email}"]
-  project = var.project_id
-}
-
-resource "google_project_iam_binding" "ci_account_storage_iam" {
-  role    = "roles/storage.admin"
-  members = ["serviceAccount:${google_service_account.ci.email}"]
-  project = var.project_id
-}
-
-resource "google_project_iam_binding" "ci_account_token_iam" {
-  role    = "roles/iam.serviceAccountTokenCreator"
-  members = ["serviceAccount:${google_service_account.ci.email}"]
-  project = var.project_id
-}
-
-resource "google_project_iam_binding" "ci_account_browser_iam" {
-  role    = "roles/browser"
-  members = ["serviceAccount:${google_service_account.ci.email}"]
-  project = var.project_id
-}
-
-resource "google_service_account_key" "ci_key" {
-  service_account_id = google_service_account.ci.id
+resource "google_service_account_key" "ci_service_account_key" {
+  service_account_id = google_service_account.ci_service_account.id
 }
 
 resource "google_project_iam_binding" "compute_account_storage_iam" {

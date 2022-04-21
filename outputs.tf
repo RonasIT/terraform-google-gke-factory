@@ -24,7 +24,7 @@ output "ci_email" {
 }
 
 output "ci_private_key" {
-  value       = google_service_account_key.ci_key.private_key
+  value       = google_service_account_key.ci_service_account_key.private_key
   description = "The private key of the CI service account"
   sensitive   = true
 }
