@@ -39,6 +39,7 @@ terraform-docs -c .tfdocs-config.yml .
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.5 |
+| <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | 1.14.0 |
 
 #### Providers
 
@@ -79,10 +80,6 @@ terraform-docs -c .tfdocs-config.yml .
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_issuer_email"></a> [cluster\_issuer\_email](#input\_cluster\_issuer\_email) | The email of the cluster issuer | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project | `string` | n/a | yes |
-| <a name="input_cluster_max_cpu_cores"></a> [cluster\_max\_cpu\_cores](#input\_cluster\_max\_cpu\_cores) | Maximum number of CPU cores | `number` | `2` | no |
-| <a name="input_cluster_max_memory_gb"></a> [cluster\_max\_memory\_gb](#input\_cluster\_max\_memory\_gb) | Maximum memory in GB | `number` | `4` | no |
-| <a name="input_cluster_min_cpu_cores"></a> [cluster\_min\_cpu\_cores](#input\_cluster\_min\_cpu\_cores) | Minimum number of CPU cores | `number` | `1` | no |
-| <a name="input_cluster_min_memory_gb"></a> [cluster\_min\_memory\_gb](#input\_cluster\_min\_memory\_gb) | Minimum memory in GB | `number` | `1` | no |
 | <a name="input_cluster_region"></a> [cluster\_region](#input\_cluster\_region) | The region of the cluster | `string` | `"us-central1"` | no |
 | <a name="input_cluster_zones"></a> [cluster\_zones](#input\_cluster\_zones) | The zones of the cluster | `list(string)` | <pre>[<br>  "us-central1-a"<br>]</pre> | no |
 | <a name="input_node_pool_autoupgrade"></a> [node\_pool\_autoupgrade](#input\_node\_pool\_autoupgrade) | Autoupgrade for node pools | `bool` | `false` | no |
