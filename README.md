@@ -99,6 +99,7 @@ terraform-docs -c .tfdocs-config.yml .
 | <a name="output_ci_private_key"></a> [ci\_private\_key](#output\_ci\_private\_key) | The private key of the CI service account |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | The name of the cluster |
 | <a name="output_cluster_region"></a> [cluster\_region](#output\_cluster\_region) | The region of the cluster |
+| <a name="output_cluster_zones"></a> [cluster\_zones](#output\_cluster\_zones) | The zones of the cluster |
 | <a name="output_ingress_ip_address"></a> [ingress\_ip\_address](#output\_ingress\_ip\_address) | The IP address of the ingress |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The ID of the project |
 <!-- END_TF_DOCS -->
