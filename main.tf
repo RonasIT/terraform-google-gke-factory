@@ -201,15 +201,15 @@ resource "google_service_account" "ci_service_account" {
   project      = var.project_id
 }
 
-resource "google_project_iam_binding" "ci_service_account_editor_iam" {
+resource "google_project_iam_member" "ci_service_account_editor_iam" {
   role    = "roles/editor"
-  members = ["serviceAccount:${google_service_account.ci_service_account.email}"]
+  member = "serviceAccount:${google_service_account.ci_service_account.email}"
   project = var.project_id
 }
 
-resource "google_project_iam_binding" "ci_service_account_token_creator_iam" {
+resource "google_project_iam_member" "ci_service_account_token_creator_iam" {
   role    = "roles/iam.serviceAccountTokenCreator"
-  members = ["serviceAccount:${google_service_account.ci_service_account.email}"]
+  member = "serviceAccount:${google_service_account.ci_service_account.email}"
   project = var.project_id
 }
 
