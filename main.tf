@@ -93,6 +93,8 @@ module "gke" {
   create_service_account            = false
   remove_default_node_pool          = true
   add_master_webhook_firewall_rules = true
+  grant_registry_access             = true
+  registry_project_ids              = [var.project_id]
 
   node_pools = [
     {
@@ -215,14 +217,4 @@ resource "google_project_iam_member" "ci_service_account_token_creator_iam" {
 
 resource "google_service_account_key" "ci_service_account_key" {
   service_account_id = google_service_account.ci_service_account.id
-}
-
-resource "google_project_iam_binding" "compute_account_storage_iam" {
-  role    = "roles/storage.objectViewer"
-  members = ["serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"]
-  project = var.project_id
-
-  depends_on = [
-    resource.google_project_service.enable_container_api
-  ]
 }
