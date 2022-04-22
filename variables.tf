@@ -30,7 +30,7 @@ variable "node_pool_disk_size" {
 variable "node_pool_autoupgrade" {
   description = "Autoupgrade for node pools"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "node_pool_preemptible" {
