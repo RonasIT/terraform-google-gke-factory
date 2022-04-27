@@ -53,11 +53,11 @@ variable "cluster_issuer_email" {
 variable "logging_service" {
   description = "The logging service"
   type        = string
-  default     = ""
+  default     = "none"
 }
 
 variable "monitoring_service" {
   description = "The monitoring service"
   type        = string
-  default     = ""
+  default     = "none"
 }
