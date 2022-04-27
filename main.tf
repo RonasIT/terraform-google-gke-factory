@@ -93,6 +93,8 @@ module "gke" {
   create_service_account            = false
   remove_default_node_pool          = true
   add_master_webhook_firewall_rules = true
+  logging_service                   = var.logging_service
+  monitoring_service                = var.monitoring_service
 
   node_pools = [
     {
