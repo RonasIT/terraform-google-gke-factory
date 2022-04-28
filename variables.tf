@@ -50,6 +50,12 @@ variable "cluster_issuer_email" {
   type        = string
 }
 
+variable "cluster_issuer_server" {
+  description = "The server of the cluster issuer"
+  type        = string
+  default     = "https://acme-v02.api.letsencrypt.org/directory"
+}
+
 variable "logging_service" {
   description = "The logging service"
   type        = string

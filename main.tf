@@ -164,7 +164,8 @@ module "cert_manager" {
   source  = "terraform-iaac/cert-manager/kubernetes"
   version = "~> 2.4.2"
 
-  cluster_issuer_email = var.cluster_issuer_email
+  cluster_issuer_email  = var.cluster_issuer_email
+  cluster_issuer_server = var.cluster_issuer_server
 
   solvers = [
     {
@@ -205,13 +206,13 @@ resource "google_service_account" "ci_service_account" {
 
 resource "google_project_iam_member" "ci_service_account_editor_iam" {
   role    = "roles/editor"
-  member = "serviceAccount:${google_service_account.ci_service_account.email}"
+  member  = "serviceAccount:${google_service_account.ci_service_account.email}"
   project = var.project_id
 }
 
 resource "google_project_iam_member" "ci_service_account_token_creator_iam" {
   role    = "roles/iam.serviceAccountTokenCreator"
-  member = "serviceAccount:${google_service_account.ci_service_account.email}"
+  member  = "serviceAccount:${google_service_account.ci_service_account.email}"
   project = var.project_id
 }
 
