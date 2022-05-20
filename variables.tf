@@ -67,3 +67,9 @@ variable "monitoring_service" {
   type        = string
   default     = "none"
 }
+
+variable "is_prometheus_metrics_enabled" {
+  description = "Enable Prometheus metrics"
+  type        = bool
+  default     = false
+}

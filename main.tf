@@ -93,6 +93,7 @@ module "gke" {
   create_service_account            = false
   remove_default_node_pool          = true
   add_master_webhook_firewall_rules = true
+  firewall_inbound_ports            = is_prometheus_metrics_enabled ? ["8443", "9443", "15017", "9090"] : ["8443", "9443", "15017"]
   logging_service                   = var.logging_service
   monitoring_service                = var.monitoring_service
 
