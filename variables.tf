@@ -27,6 +27,12 @@ variable "node_pool_disk_size" {
   default     = 30
 }
 
+variable "node_pool_disk_type" {
+  description = "Disk type for node pools"
+  type        = string
+  default     = "pd-balanced"
+}
+
 variable "node_pool_autoupgrade" {
   description = "Autoupgrade for node pools"
   type        = bool

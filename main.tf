@@ -102,6 +102,7 @@ module "gke" {
       name           = local.node_pools_name
       machine_type   = var.node_pool_machine_type
       disk_size_gb   = var.node_pool_disk_size
+      disk_type      = var.node_pool_disk_type
       auto_upgrade   = var.node_pool_autoupgrade
       preemptible    = var.node_pool_preemptible
       node_locations = join(",", var.cluster_zones)
