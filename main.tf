@@ -169,7 +169,7 @@ module "cert_manager" {
   cluster_issuer_email  = var.cluster_issuer_email
   cluster_issuer_server = var.cluster_issuer_server
 
-  solvers = [
+  solvers = concat(var.cert_manager_additional_solvers, [
     {
       http01 = {
         ingress = {
@@ -177,7 +177,7 @@ module "cert_manager" {
         }
       }
     }
-  ]
+  ])
 }
 
 module "nginx-controller" {

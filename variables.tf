@@ -79,3 +79,9 @@ variable "is_prometheus_metrics_enabled" {
   type        = bool
   default     = false
 }
+
+variable "cert_manager_additional_solvers" {
+  description = "Additional solvers for cert-manager"
+  type        = list(any)
+  default     = []
+}
