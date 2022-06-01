@@ -185,6 +185,7 @@ module "nginx-controller" {
   version = "~> 2.0.2"
 
   ip_address = google_compute_address.ingress_ip_address.address
+  namespace  = "nginx-controller"
   atomic     = true
   additional_set = [
     {
