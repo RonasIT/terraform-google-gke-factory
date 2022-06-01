@@ -46,6 +46,7 @@ terraform-docs -c .tfdocs-config.yml .
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | ~> 4.5 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | n/a |
 
 #### Modules
 
@@ -72,6 +73,7 @@ terraform-docs -c .tfdocs-config.yml .
 | [google_project_service.enable_container_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [google_service_account.ci_service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 | [google_service_account_key.ci_service_account_key](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
+| [kubernetes_namespace.nginx_controller_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [google_client_config.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
 | [google_project.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
