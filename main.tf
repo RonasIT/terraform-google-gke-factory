@@ -1,12 +1,13 @@
 locals {
-  network_name                   = "${var.project_id}-vpc"
-  subnet_name                    = "${var.project_id}-${var.cluster_region}-01"
-  secondary_ranges_pods_name     = "${var.project_id}-${var.cluster_region}-01-pods"
-  secondary_ranges_services_name = "${var.project_id}-${var.cluster_region}-01-services"
-  gke_name                       = "${var.project_id}-gke"
-  node_pools_name                = "${var.project_id}-node-pool-main"
-  cloud_router_name              = "${var.project_id}-router"
-  ci_service_account_name        = "ci-service-account"
+  network_name                    = "${var.project_id}-vpc"
+  subnet_name                     = "${var.project_id}-${var.cluster_region}-01"
+  secondary_ranges_pods_name      = "${var.project_id}-${var.cluster_region}-01-pods"
+  secondary_ranges_services_name  = "${var.project_id}-${var.cluster_region}-01-services"
+  gke_name                        = "${var.project_id}-gke"
+  node_pools_name                 = "${var.project_id}-node-pool-main"
+  cloud_router_name               = "${var.project_id}-router"
+  ci_service_account_name         = "ci-service-account"
+  nginx_controller_namespace_name = "nginx-controller"
 }
 
 data "google_project" "project" {
@@ -180,12 +181,18 @@ module "cert_manager" {
   ])
 }
 
+resource "kubernetes_namespace" "nginx_controller_namespace" {
+  metadata {
+    name = local.nginx_controller_namespace_name
+  }
+}
+
 module "nginx-controller" {
   source  = "terraform-iaac/nginx-controller/helm"
   version = "~> 2.0.2"
 
   ip_address = google_compute_address.ingress_ip_address.address
-  namespace  = "nginx-controller"
+  namespace  = local.nginx_controller_namespace_name
   atomic     = true
   additional_set = [
     {
@@ -196,6 +203,7 @@ module "nginx-controller" {
   ]
 
   depends_on = [
+    resource.kubernetes_namespace.nginx_controller_namespace,
     resource.google_compute_address.ingress_ip_address,
     module.cert_manager
   ]
