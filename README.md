@@ -90,6 +90,7 @@ terraform-docs -c .tfdocs-config.yml .
 | <a name="input_is_prometheus_metrics_enabled"></a> [is\_prometheus\_metrics\_enabled](#input\_is\_prometheus\_metrics\_enabled) | Enable Prometheus metrics | `bool` | `false` | no |
 | <a name="input_logging_service"></a> [logging\_service](#input\_logging\_service) | The logging service | `string` | `"none"` | no |
 | <a name="input_monitoring_service"></a> [monitoring\_service](#input\_monitoring\_service) | The monitoring service | `string` | `"none"` | no |
+| <a name="input_nginx_controller_additional_set"></a> [nginx\_controller\_additional\_set](#input\_nginx\_controller\_additional\_set) | Additional set for nginx-controller | `list(any)` | `[]` | no |
 | <a name="input_node_pool_autoupgrade"></a> [node\_pool\_autoupgrade](#input\_node\_pool\_autoupgrade) | Autoupgrade for node pools | `bool` | `true` | no |
 | <a name="input_node_pool_disk_size"></a> [node\_pool\_disk\_size](#input\_node\_pool\_disk\_size) | Disk size for node pools | `number` | `30` | no |
 | <a name="input_node_pool_disk_type"></a> [node\_pool\_disk\_type](#input\_node\_pool\_disk\_type) | Disk type for node pools | `string` | `"pd-balanced"` | no |
