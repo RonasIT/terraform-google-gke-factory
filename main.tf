@@ -194,13 +194,13 @@ module "nginx-controller" {
   ip_address = google_compute_address.ingress_ip_address.address
   namespace  = local.nginx_controller_namespace_name
   atomic     = true
-  additional_set = [
+  additional_set = concat(var.nginx_controller_additional_set, [
     {
       name  = "cert-manager\\.io/cluster-issuer"
       value = module.cert_manager.cluster_issuer_name
       type  = "string"
     }
-  ]
+  ])
 
   depends_on = [
     resource.kubernetes_namespace.nginx_controller_namespace,

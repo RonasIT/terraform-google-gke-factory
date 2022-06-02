@@ -85,3 +85,9 @@ variable "cert_manager_additional_solvers" {
   type        = list(any)
   default     = []
 }
+
+variable "nginx_controller_additional_set" {
+  description = "Additional set for nginx-controller"
+  type        = list(any)
+  default     = []
+}
