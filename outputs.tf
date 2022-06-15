@@ -19,7 +19,7 @@ output "cluster_zones" {
 }
 
 output "cluster_network" {
-  value = module.network
+  value       = module.network
   description = "Network of the cluster"
 }
 
