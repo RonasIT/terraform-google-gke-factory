@@ -18,6 +18,11 @@ output "cluster_zones" {
   description = "The zones of the cluster"
 }
 
+output "cluster_network" {
+  value = module.network
+  description = "Network of the cluster"
+}
+
 output "ci_email" {
   value       = google_service_account.ci_service_account.email
   description = "The email of the CI service account"
