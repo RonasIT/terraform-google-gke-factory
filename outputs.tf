@@ -14,7 +14,7 @@ output "cluster_region" {
 }
 
 output "cluster_zones" {
-  value       = module.gke.zones
+  value       = var.cluster_zones
   description = "The zones of the cluster"
 }
 
