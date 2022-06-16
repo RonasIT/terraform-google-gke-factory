@@ -37,15 +37,15 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.5 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.3 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.25.0 |
 | <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | 1.14.0 |
 
 #### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 4.5 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 4.25.0 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | n/a |
 
 #### Modules
@@ -54,10 +54,10 @@ terraform-docs -c .tfdocs-config.yml .
 |------|--------|---------|
 | <a name="module_cert_manager"></a> [cert\_manager](#module\_cert\_manager) | terraform-iaac/cert-manager/kubernetes | ~> 2.4.2 |
 | <a name="module_cloud_nat"></a> [cloud\_nat](#module\_cloud\_nat) | terraform-google-modules/cloud-nat/google | ~> 2.2.0 |
-| <a name="module_cloud_router"></a> [cloud\_router](#module\_cloud\_router) | terraform-google-modules/cloud-router/google | ~> 1.3.0 |
-| <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | ~> 20.0.0 |
-| <a name="module_network"></a> [network](#module\_network) | terraform-google-modules/network/google | ~> 5.0.0 |
-| <a name="module_nginx-controller"></a> [nginx-controller](#module\_nginx-controller) | terraform-iaac/nginx-controller/helm | ~> 2.0.2 |
+| <a name="module_cloud_router"></a> [cloud\_router](#module\_cloud\_router) | terraform-google-modules/cloud-router/google | ~> 2.0.0 |
+| <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | ~> 21.1.0 |
+| <a name="module_network"></a> [network](#module\_network) | terraform-google-modules/network/google | ~> 5.1.0 |
+| <a name="module_nginx-controller"></a> [nginx-controller](#module\_nginx-controller) | terraform-iaac/nginx-controller/helm | ~> 2.0.4 |
 
 #### Resources
 
