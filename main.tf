@@ -40,7 +40,7 @@ resource "google_project_service" "enable_container_api" {
 
 module "network" {
   source  = "terraform-google-modules/network/google"
-  version = "5.1.0"
+  version = "5.2.0"
 
   project_id   = var.project_id
   network_name = local.network_name
@@ -74,7 +74,7 @@ module "network" {
 
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
-  version = "21.2.0"
+  version = "22.1.0"
 
   project_id                        = var.project_id
   name                              = local.gke_name
@@ -128,7 +128,7 @@ module "gke" {
 
 module "cloud_router" {
   source  = "terraform-google-modules/cloud-router/google"
-  version = "2.0.0"
+  version = "3.0.0"
 
   project = var.project_id
   name    = local.cloud_router_name
