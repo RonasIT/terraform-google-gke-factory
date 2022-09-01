@@ -97,6 +97,7 @@ module "gke" {
   firewall_inbound_ports            = var.is_prometheus_metrics_enabled ? ["8443", "9443", "15017", "9090"] : ["8443", "9443", "15017"]
   logging_service                   = var.logging_service
   monitoring_service                = var.monitoring_service
+  release_channel                   = var.cluster_release_channel
 
   node_pools = [
     {
