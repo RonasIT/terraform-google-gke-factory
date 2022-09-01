@@ -37,45 +37,44 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.3 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.25.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 4.31.0 |
 | <a name="requirement_kubectl"></a> [kubectl](#requirement\_kubectl) | 1.14.0 |
 
 #### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 4.25.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.31.0 |
 | <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | n/a |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cert_manager"></a> [cert\_manager](#module\_cert\_manager) | terraform-iaac/cert-manager/kubernetes | ~> 2.4.2 |
-| <a name="module_cloud_nat"></a> [cloud\_nat](#module\_cloud\_nat) | terraform-google-modules/cloud-nat/google | ~> 2.2.0 |
-| <a name="module_cloud_router"></a> [cloud\_router](#module\_cloud\_router) | terraform-google-modules/cloud-router/google | ~> 2.0.0 |
-| <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | ~> 21.1.0 |
-| <a name="module_network"></a> [network](#module\_network) | terraform-google-modules/network/google | ~> 5.1.0 |
-| <a name="module_nginx-controller"></a> [nginx-controller](#module\_nginx-controller) | terraform-iaac/nginx-controller/helm | ~> 2.0.4 |
+| <a name="module_cert_manager"></a> [cert\_manager](#module\_cert\_manager) | terraform-iaac/cert-manager/kubernetes | 2.4.2 |
+| <a name="module_cloud_nat"></a> [cloud\_nat](#module\_cloud\_nat) | terraform-google-modules/cloud-nat/google | 2.2.1 |
+| <a name="module_cloud_router"></a> [cloud\_router](#module\_cloud\_router) | terraform-google-modules/cloud-router/google | 3.0.0 |
+| <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | 22.1.0 |
+| <a name="module_network"></a> [network](#module\_network) | terraform-google-modules/network/google | 5.2.0 |
+| <a name="module_nginx-controller"></a> [nginx-controller](#module\_nginx-controller) | terraform-iaac/nginx-controller/helm | 2.0.4 |
 
 #### Resources
 
 | Name | Type |
 |------|------|
-| [google_compute_address.ingress_ip_address](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address) | resource |
-| [google_project_default_service_accounts.deprivilege_default_service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_default_service_accounts) | resource |
-| [google_project_iam_binding.compute_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_binding) | resource |
-| [google_project_iam_member.ci_service_account_editor_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_iam_member.ci_service_account_token_creator_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_service.enable_cloud_resource_manager_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_project_service.enable_compute_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_project_service.enable_container_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_service_account.ci_service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
-| [google_service_account_key.ci_service_account_key](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
+| [google_compute_address.ingress_ip_address](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/compute_address) | resource |
+| [google_project_default_service_accounts.deprivilege_default_service_account](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_default_service_accounts) | resource |
+| [google_project_iam_binding.compute_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_iam_binding) | resource |
+| [google_project_iam_member.ci_service_account_editor_iam](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_iam_member) | resource |
+| [google_project_iam_member.ci_service_account_token_creator_iam](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_iam_member) | resource |
+| [google_project_service.enable_cloud_resource_manager_api](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_service) | resource |
+| [google_project_service.enable_compute_api](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_service) | resource |
+| [google_project_service.enable_container_api](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_service) | resource |
+| [google_service_account.ci_service_account](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/service_account) | resource |
+| [google_service_account_key.ci_service_account_key](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/service_account_key) | resource |
 | [kubernetes_namespace.nginx_controller_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
-| [google_client_config.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config) | data source |
-| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
+| [google_client_config.default](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/data-sources/client_config) | data source |
+| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/data-sources/project) | data source |
 
 #### Inputs
 
@@ -86,6 +85,7 @@ terraform-docs -c .tfdocs-config.yml .
 | <a name="input_cert_manager_additional_solvers"></a> [cert\_manager\_additional\_solvers](#input\_cert\_manager\_additional\_solvers) | Additional solvers for cert-manager | `list(any)` | `[]` | no |
 | <a name="input_cluster_issuer_server"></a> [cluster\_issuer\_server](#input\_cluster\_issuer\_server) | The server of the cluster issuer | `string` | `"https://acme-v02.api.letsencrypt.org/directory"` | no |
 | <a name="input_cluster_region"></a> [cluster\_region](#input\_cluster\_region) | The region of the cluster | `string` | `"us-central1"` | no |
+| <a name="input_cluster_release_channel"></a> [cluster\_release\_channel](#input\_cluster\_release\_channel) | Cluster release channel (UNSPECIFIED, RAPID, REGULAR and STABLE). Defaults to UNSPECIFIED. | `string` | `"UNSPECIFIED"` | no |
 | <a name="input_cluster_zones"></a> [cluster\_zones](#input\_cluster\_zones) | The zones of the cluster | `list(string)` | <pre>[<br>  "us-central1-a"<br>]</pre> | no |
 | <a name="input_is_prometheus_metrics_enabled"></a> [is\_prometheus\_metrics\_enabled](#input\_is\_prometheus\_metrics\_enabled) | Enable Prometheus metrics | `bool` | `false` | no |
 | <a name="input_logging_service"></a> [logging\_service](#input\_logging\_service) | The logging service | `string` | `"none"` | no |
