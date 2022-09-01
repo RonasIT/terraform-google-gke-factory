@@ -91,3 +91,9 @@ variable "nginx_controller_additional_set" {
   type        = list(any)
   default     = []
 }
+
+variable "cluster_release_channel" {
+  description = "Cluster release channel (UNSPECIFIED, RAPID, REGULAR and STABLE). Defaults to UNSPECIFIED."
+  type        = string
+  default     = "UNSPECIFIED"
+}
