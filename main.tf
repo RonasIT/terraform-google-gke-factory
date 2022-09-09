@@ -74,7 +74,7 @@ module "network" {
 
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
-  version = "22.1.0"
+  version = "23.0.0"
 
   project_id                        = var.project_id
   name                              = local.gke_name
