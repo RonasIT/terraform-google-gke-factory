@@ -3,6 +3,11 @@ output "project_id" {
   description = "The ID of the project"
 }
 
+output "project_name" {
+  value       = var.project_name
+  description = "The name of the project"
+}
+
 output "cluster_name" {
   value       = module.gke.name
   description = "The name of the cluster"
