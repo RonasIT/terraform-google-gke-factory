@@ -7,15 +7,11 @@ data "google_project" "project" {
   project_id = var.project_id
 }
 
-// Networking
-
 resource "google_compute_address" "ingress_ip_address" {
   name    = local.ingress_ip_address_name
   project = var.project_id
   region  = var.cluster_region
 }
-
-// GKE
 
 module "gke" {
   source = "./modules/gke-factory"
@@ -26,7 +22,7 @@ module "gke" {
   cluster_zones                 = var.cluster_zones
   is_prometheus_metrics_enabled = true
   ingress_ip_address            = google_compute_address.ingress_ip_address.address
-  cluster_issuer_email          = "eleonov@ronasit.com"
+  cluster_issuer_email          = var.cluster_issuer_email
 }
 
 resource "google_service_account" "ci_service_account" {

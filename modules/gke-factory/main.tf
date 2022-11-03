@@ -9,8 +9,6 @@ locals {
   nginx_controller_namespace_name = "nginx-controller"
 }
 
-// APIs
-
 resource "google_project_service" "enable_cloud_resource_manager_api" {
   project = var.project_id
   service = "cloudresourcemanager.googleapis.com"
