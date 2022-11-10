@@ -83,7 +83,7 @@ variable "cluster_issuer_server" {
 variable "nginx_controller_additional_set" {
   description = "Additional set for nginx-controller"
   type        = list(any)
-  default     = [
+  default = [
     {
       name  = "controller.resources.limits.cpu"
       value = "125m"

@@ -19,12 +19,12 @@ output "cluster_region" {
 }
 
 output "cluster_zones" {
-  value       = var.cluster_zones
+  value       = module.gke.zones
   description = "The zones of the cluster"
 }
 
 output "cluster_network" {
-  value       = module.network
+  value       = module.gke.network
   description = "Network of the cluster"
 }
 

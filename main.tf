@@ -1,6 +1,6 @@
 locals {
-  ci_service_account_name      = "ci-service-account"
-  ingress_ip_address_name      = "nginx-controller"
+  ci_service_account_name = "ci-service-account"
+  ingress_ip_address_name = "nginx-controller"
 }
 
 data "google_project" "project" {
@@ -53,6 +53,6 @@ resource "google_project_iam_binding" "compute_account_storage_iam" {
   project = var.project_id
 
   depends_on = [
-    resource.google_project_service.enable_container_api
+    module.gke
   ]
 }
