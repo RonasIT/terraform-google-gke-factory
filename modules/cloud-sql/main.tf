@@ -16,7 +16,7 @@ module "postgresql" {
   source  = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
   version = "12.1.0"
 
-  name                            = "${var.project_name}-${var.project_environment}"
+  name                            = "${var.project_name}-${var.environment_name}"
   project_id                      = var.project_id
   database_version                = "POSTGRES_14"
   region                          = var.cluster_region
