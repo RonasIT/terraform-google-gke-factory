@@ -1,6 +1,6 @@
 locals {
-  ci_service_account_name = "ci-service-account"
-  ingress_ip_address_name = "nginx-controller"
+  storage_service_account_name = "storage-service-account"
+  ci_service_account_name      = "ci-service-account"
 }
 
 data "google_project" "project" {
@@ -8,7 +8,7 @@ data "google_project" "project" {
 }
 
 resource "google_compute_address" "ingress_ip_address" {
-  name    = local.ingress_ip_address_name
+  name    = "${var.project_name}-${var.environment_name}-nginx"
   project = var.project_id
   region  = var.cluster_region
 }
@@ -18,11 +18,35 @@ module "gke" {
 
   project_id                    = var.project_id
   project_name                  = var.project_name
+  environment_name              = var.environment_name
   cluster_region                = var.cluster_region
   cluster_zones                 = var.cluster_zones
   is_prometheus_metrics_enabled = true
   ingress_ip_address            = google_compute_address.ingress_ip_address.address
   cluster_issuer_email          = var.cluster_issuer_email
+}
+
+resource "google_storage_bucket" "artifacts_bucket" {
+  project                     = var.project_id
+  name                        = "${var.project_name}-${var.environment_name}-artifacts"
+  location                    = var.cluster_region
+  uniform_bucket_level_access = false
+}
+
+resource "google_service_account" "storage_service_account" {
+  account_id   = local.storage_service_account_name
+  display_name = local.storage_service_account_name
+  project      = var.project_id
+}
+
+resource "google_project_iam_binding" "storage_service_account_storage_iam" {
+  role    = "roles/storage.admin"
+  members = ["serviceAccount:${google_service_account.storage_service_account.email}"]
+  project = var.project_id
+}
+
+resource "google_service_account_key" "storage_service_account_key" {
+  service_account_id = google_service_account.storage_service_account.id
 }
 
 resource "google_service_account" "ci_service_account" {
@@ -45,6 +69,11 @@ resource "google_project_iam_member" "ci_service_account_token_creator_iam" {
 
 resource "google_service_account_key" "ci_service_account_key" {
   service_account_id = google_service_account.ci_service_account.id
+}
+
+resource "google_project_default_service_accounts" "deprivilege_default_service_account" {
+  project = var.project_id
+  action  = "DEPRIVILEGE"
 }
 
 resource "google_project_iam_binding" "compute_account_storage_iam" {

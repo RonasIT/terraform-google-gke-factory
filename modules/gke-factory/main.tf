@@ -143,8 +143,6 @@ module "cloud_nat" {
   ]
 }
 
-// K8S
-
 module "cert_manager" {
   source  = "terraform-iaac/cert-manager/kubernetes"
   version = "2.4.2"
