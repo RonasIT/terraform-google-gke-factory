@@ -45,34 +45,23 @@ terraform-docs -c .tfdocs-config.yml .
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | 4.31.0 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.13.1 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cert_manager"></a> [cert\_manager](#module\_cert\_manager) | terraform-iaac/cert-manager/kubernetes | 2.4.2 |
-| <a name="module_cloud_nat"></a> [cloud\_nat](#module\_cloud\_nat) | terraform-google-modules/cloud-nat/google | 2.2.1 |
-| <a name="module_cloud_router"></a> [cloud\_router](#module\_cloud\_router) | terraform-google-modules/cloud-router/google | 3.0.0 |
-| <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | 23.0.0 |
-| <a name="module_network"></a> [network](#module\_network) | terraform-google-modules/network/google | 5.2.0 |
-| <a name="module_nginx-controller"></a> [nginx-controller](#module\_nginx-controller) | terraform-iaac/nginx-controller/helm | 2.0.4 |
+| <a name="module_gke"></a> [gke](#module\_gke) | ./modules/gke-factory | n/a |
 
 #### Resources
 
 | Name | Type |
 |------|------|
 | [google_compute_address.ingress_ip_address](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/compute_address) | resource |
-| [google_project_default_service_accounts.deprivilege_default_service_account](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_default_service_accounts) | resource |
 | [google_project_iam_binding.compute_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_iam_binding) | resource |
 | [google_project_iam_member.ci_service_account_editor_iam](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_iam_member) | resource |
 | [google_project_iam_member.ci_service_account_token_creator_iam](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_iam_member) | resource |
-| [google_project_service.enable_cloud_resource_manager_api](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_service) | resource |
-| [google_project_service.enable_compute_api](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_service) | resource |
-| [google_project_service.enable_container_api](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/project_service) | resource |
 | [google_service_account.ci_service_account](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/service_account) | resource |
 | [google_service_account_key.ci_service_account_key](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/resources/service_account_key) | resource |
-| [kubernetes_namespace.nginx_controller_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
 | [google_client_config.default](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/data-sources/client_config) | data source |
 | [google_project.project](https://registry.terraform.io/providers/hashicorp/google/4.31.0/docs/data-sources/project) | data source |
 
@@ -82,6 +71,7 @@ terraform-docs -c .tfdocs-config.yml .
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_issuer_email"></a> [cluster\_issuer\_email](#input\_cluster\_issuer\_email) | The email of the cluster issuer | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project | `string` | n/a | yes |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the project | `string` | n/a | yes |
 | <a name="input_cert_manager_additional_solvers"></a> [cert\_manager\_additional\_solvers](#input\_cert\_manager\_additional\_solvers) | Additional solvers for cert-manager | `list(any)` | `[]` | no |
 | <a name="input_cluster_issuer_server"></a> [cluster\_issuer\_server](#input\_cluster\_issuer\_server) | The server of the cluster issuer | `string` | `"https://acme-v02.api.letsencrypt.org/directory"` | no |
 | <a name="input_cluster_region"></a> [cluster\_region](#input\_cluster\_region) | The region of the cluster | `string` | `"us-central1"` | no |
@@ -110,4 +100,5 @@ terraform-docs -c .tfdocs-config.yml .
 | <a name="output_cluster_zones"></a> [cluster\_zones](#output\_cluster\_zones) | The zones of the cluster |
 | <a name="output_ingress_ip_address"></a> [ingress\_ip\_address](#output\_ingress\_ip\_address) | The IP address of the ingress |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The ID of the project |
+| <a name="output_project_name"></a> [project\_name](#output\_project\_name) | The name of the project |
 <!-- END_TF_DOCS -->

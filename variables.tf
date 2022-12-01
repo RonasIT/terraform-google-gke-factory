@@ -3,6 +3,11 @@ variable "project_id" {
   type        = string
 }
 
+variable "project_name" {
+  description = "The name of the project"
+  type        = string
+}
+
 variable "cluster_region" {
   description = "The region of the cluster"
   type        = string
@@ -96,4 +101,14 @@ variable "cluster_release_channel" {
   description = "Cluster release channel (UNSPECIFIED, RAPID, REGULAR and STABLE). Defaults to UNSPECIFIED."
   type        = string
   default     = "UNSPECIFIED"
+}
+
+variable "environment_name" {
+  description = "The name of the environment"
+  type        = string
+  default     = "cloud"
+  validation {
+    condition     = length(regexall("^(development|production|staging|cloud)$", var.environment_name)) > 0
+    error_message = "ERROR: Valid types are \"development\", \"production\", \"staging\", and \"cloud\"!"
+  }
 }
