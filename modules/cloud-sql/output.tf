@@ -1,6 +1,6 @@
 output "generated_user_password" {
   value       = module.postgresql.generated_user_password
-  description = "The password of the defaule user to access database"
+  description = "The password of the default user to access database"
   sensitive   = true
 }
 

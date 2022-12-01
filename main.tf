@@ -8,7 +8,7 @@ data "google_project" "project" {
 }
 
 resource "google_compute_address" "ingress_ip_address" {
-  name    = "${var.project_name}-${var.environment_name}-nginx"
+  name    = "${var.project_name}-${var.environment_name}-nginx-ingress-controller"
   project = var.project_id
   region  = var.cluster_region
 }

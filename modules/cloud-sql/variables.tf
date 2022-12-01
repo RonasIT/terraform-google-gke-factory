@@ -19,7 +19,7 @@ variable "cluster_region" {
 }
 
 variable "cluster_network" {
-  description = "The region of the cluster"
+  description = "The network of the cluster"
   type        = object({ network_name = string, network_self_link = string })
 }
 
