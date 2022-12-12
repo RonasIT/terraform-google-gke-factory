@@ -16,7 +16,7 @@ resource "google_compute_address" "ingress_ip_address_development" {
 }
 
 module "gke_development" {
-  source = "RonasIT/gke-factory/google//modules/gke-factory"
+  source  = "RonasIT/gke-factory/google//modules/gke-factory"
   version = "~> 3.0.0"
 
   project_id                    = var.project_id
@@ -45,7 +45,7 @@ resource "google_compute_address" "ingress_ip_address_production" {
 }
 
 module "gke_production" {
-  source = "RonasIT/gke-factory/google//modules/gke-factory"
+  source  = "RonasIT/gke-factory/google//modules/gke-factory"
   version = "~> 3.0.0"
 
   project_id                    = var.project_id
@@ -82,13 +82,13 @@ resource "google_storage_bucket" "artifacts_bucket_production" {
 // CloudSQL
 
 module "postgresql_production" {
-  source = "RonasIT/gke-factory/google//modules/cloud-sql"
+  source  = "RonasIT/gke-factory/google//modules/cloud-sql"
   version = "~> 3.0.0"
 
-  project_id                    = var.project_id
-  project_name                  = var.project_name
-  environment_name              = local.environment_production_name
-  cluster_region= var.cluster_region_production
-  cluster_network = module.gke_production.network
+  project_id           = var.project_id
+  project_name         = var.project_name
+  environment_name     = local.environment_production_name
+  cluster_region       = var.cluster_region_production
+  cluster_network      = module.gke_production.network
   database_master_zone = var.database_master_zone_production
 }

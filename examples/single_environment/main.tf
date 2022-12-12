@@ -3,7 +3,7 @@ data "google_project" "project" {
 }
 
 module "gke" {
-  source = "RonasIT/gke-factory/google"
+  source  = "RonasIT/gke-factory/google"
   version = "~> 3.0.0"
 
   project_id                    = var.project_id

@@ -15,6 +15,6 @@ output "database_production_generated_user_password" {
 }
 
 output "database_production_private_ip_address" {
-  value = module.postgresql_production.private_ip_address
+  value       = module.postgresql_production.private_ip_address
   description = "The first private (PRIVATE) IPv4 address assigned for the master instance"
 }
