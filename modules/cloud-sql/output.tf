@@ -5,6 +5,6 @@ output "generated_user_password" {
 }
 
 output "private_ip_address" {
-  value = module.postgresql.private_ip_address
+  value       = module.postgresql.private_ip_address
   description = "The first private (PRIVATE) IPv4 address assigned for the master instance"
 }
