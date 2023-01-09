@@ -146,6 +146,7 @@ module "cloud_nat" {
 module "cert_manager" {
   source  = "terraform-iaac/cert-manager/kubernetes"
   version = "2.4.2"
+  count   = var.install_nginx_ingress_and_cert_manager ? 1 : 0
 
   cluster_issuer_email  = var.cluster_issuer_email
   cluster_issuer_server = var.cluster_issuer_server
@@ -162,14 +163,21 @@ module "cert_manager" {
 }
 
 resource "kubernetes_namespace" "nginx_controller_namespace" {
+  count = var.install_nginx_ingress_and_cert_manager ? 1 : 0
+  
   metadata {
     name = local.nginx_controller_namespace_name
   }
+
+  depends_on = [
+    module.cert_manager[0]
+  ]
 }
 
 module "nginx-controller" {
   source  = "terraform-iaac/nginx-controller/helm"
   version = "2.0.4"
+  count   = var.install_nginx_ingress_and_cert_manager ? 1 : 0
 
   ip_address = var.ingress_ip_address
   namespace  = local.nginx_controller_namespace_name
@@ -177,14 +185,14 @@ module "nginx-controller" {
   additional_set = concat(var.nginx_controller_additional_set, [
     {
       name  = "cert-manager\\.io/cluster-issuer"
-      value = module.cert_manager.cluster_issuer_name
+      value = module.cert_manager[0].cluster_issuer_name
       type  = "string"
     }
   ])
 
   depends_on = [
     resource.kubernetes_namespace.nginx_controller_namespace,
-    module.cert_manager
+    module.cert_manager[0]
   ]
 }
 

@@ -16,14 +16,15 @@ resource "google_compute_address" "ingress_ip_address" {
 module "gke" {
   source = "./modules/gke-factory"
 
-  project_id                    = var.project_id
-  project_name                  = var.project_name
-  environment_name              = var.environment_name
-  cluster_region                = var.cluster_region
-  cluster_zones                 = var.cluster_zones
-  is_prometheus_metrics_enabled = true
-  ingress_ip_address            = google_compute_address.ingress_ip_address.address
-  cluster_issuer_email          = var.cluster_issuer_email
+  project_id                             = var.project_id
+  project_name                           = var.project_name
+  environment_name                       = var.environment_name
+  cluster_region                         = var.cluster_region
+  cluster_zones                          = var.cluster_zones
+  is_prometheus_metrics_enabled          = true
+  ingress_ip_address                     = google_compute_address.ingress_ip_address.address
+  cluster_issuer_email                   = var.cluster_issuer_email
+  install_nginx_ingress_and_cert_manager = var.install_nginx_ingress_and_cert_manager
 }
 
 resource "google_storage_bucket" "artifacts_bucket" {
