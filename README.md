@@ -75,20 +75,21 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_issuer_email"></a> [cluster\_issuer\_email](#input\_cluster\_issuer\_email) | The email of the cluster issuer (works only if `install_nginx_ingress_and_cert_manager` set as true) | `string` | n/a | yes |
+| <a name="input_cluster_issuer_email"></a> [cluster\_issuer\_email](#input\_cluster\_issuer\_email) | The email of the cluster issuer (works only if `install_cert_manager` set as true) | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the project | `string` | n/a | yes |
-| <a name="input_cert_manager_additional_solvers"></a> [cert\_manager\_additional\_solvers](#input\_cert\_manager\_additional\_solvers) | Additional solvers for cert-manager (works only if `install_nginx_ingress_and_cert_manager` set as true) | `list(any)` | `[]` | no |
-| <a name="input_cluster_issuer_server"></a> [cluster\_issuer\_server](#input\_cluster\_issuer\_server) | The server of the cluster issuer (works only if `install_nginx_ingress_and_cert_manager` set as true) | `string` | `"https://acme-v02.api.letsencrypt.org/directory"` | no |
+| <a name="input_cert_manager_additional_solvers"></a> [cert\_manager\_additional\_solvers](#input\_cert\_manager\_additional\_solvers) | Additional solvers for cert-manager (works only if `install_cert_manager` set as true) | `list(any)` | `[]` | no |
+| <a name="input_cluster_issuer_server"></a> [cluster\_issuer\_server](#input\_cluster\_issuer\_server) | The server of the cluster issuer (works only if `install_cert_manager` set as true) | `string` | `"https://acme-v02.api.letsencrypt.org/directory"` | no |
 | <a name="input_cluster_region"></a> [cluster\_region](#input\_cluster\_region) | The region of the cluster | `string` | `"us-central1"` | no |
 | <a name="input_cluster_release_channel"></a> [cluster\_release\_channel](#input\_cluster\_release\_channel) | Cluster release channel (UNSPECIFIED, RAPID, REGULAR and STABLE). Defaults to UNSPECIFIED. | `string` | `"UNSPECIFIED"` | no |
 | <a name="input_cluster_zones"></a> [cluster\_zones](#input\_cluster\_zones) | The zones of the cluster | `list(string)` | <pre>[<br>  "us-central1-a"<br>]</pre> | no |
 | <a name="input_environment_name"></a> [environment\_name](#input\_environment\_name) | The name of the environment | `string` | `"cloud"` | no |
-| <a name="input_install_nginx_ingress_and_cert_manager"></a> [install\_nginx\_ingress\_and\_cert\_manager](#input\_install\_nginx\_ingress\_and\_cert\_manager) | Install nginx ingress and cert manager | `bool` | `true` | no |
+| <a name="input_install_cert_manager"></a> [install\_cert\_manager](#input\_install\_cert\_manager) | Install cert manager (works only if `install_nginx_ingress` set as true) | `bool` | `true` | no |
+| <a name="input_install_nginx_ingress"></a> [install\_nginx\_ingress](#input\_install\_nginx\_ingress) | Install nginx ingress and cert manager | `bool` | `true` | no |
 | <a name="input_is_prometheus_metrics_enabled"></a> [is\_prometheus\_metrics\_enabled](#input\_is\_prometheus\_metrics\_enabled) | Enable Prometheus metrics | `bool` | `false` | no |
 | <a name="input_logging_service"></a> [logging\_service](#input\_logging\_service) | The logging service | `string` | `"none"` | no |
 | <a name="input_monitoring_service"></a> [monitoring\_service](#input\_monitoring\_service) | The monitoring service | `string` | `"none"` | no |
-| <a name="input_nginx_controller_additional_set"></a> [nginx\_controller\_additional\_set](#input\_nginx\_controller\_additional\_set) | Additional set for nginx-controller (works only if `install_nginx_ingress_and_cert_manager` set as true) | `list(any)` | `[]` | no |
+| <a name="input_nginx_controller_additional_set"></a> [nginx\_controller\_additional\_set](#input\_nginx\_controller\_additional\_set) | Additional set for nginx-controller (works only if `install_nginx_ingress` set as true) | `list(any)` | `[]` | no |
 | <a name="input_node_pool_autoupgrade"></a> [node\_pool\_autoupgrade](#input\_node\_pool\_autoupgrade) | Autoupgrade for node pools | `bool` | `true` | no |
 | <a name="input_node_pool_disk_size"></a> [node\_pool\_disk\_size](#input\_node\_pool\_disk\_size) | Disk size for node pools | `number` | `30` | no |
 | <a name="input_node_pool_disk_type"></a> [node\_pool\_disk\_type](#input\_node\_pool\_disk\_type) | Disk type for node pools | `string` | `"pd-balanced"` | no |

@@ -17,9 +17,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_gke_development"></a> [gke\_development](#module\_gke\_development) | RonasIT/gke-factory/google//modules/gke-factory | ~> 3.0.0 |
-| <a name="module_gke_production"></a> [gke\_production](#module\_gke\_production) | RonasIT/gke-factory/google//modules/gke-factory | ~> 3.0.0 |
-| <a name="module_postgresql_production"></a> [postgresql\_production](#module\_postgresql\_production) | RonasIT/gke-factory/google//modules/cloud-sql | ~> 3.0.0 |
+| <a name="module_gke_development"></a> [gke\_development](#module\_gke\_development) | ../../modules/gke-factory | n/a |
+| <a name="module_gke_production"></a> [gke\_production](#module\_gke\_production) | ../../modules/gke-factory | n/a |
+| <a name="module_postgresql_production"></a> [postgresql\_production](#module\_postgresql\_production) | ../../modules/cloud-sql | n/a |
 
 #### Resources
 

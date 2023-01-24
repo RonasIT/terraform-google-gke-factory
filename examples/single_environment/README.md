@@ -17,7 +17,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_gke"></a> [gke](#module\_gke) | RonasIT/gke-factory/google | ~> 3.0.0 |
+| <a name="module_gke"></a> [gke](#module\_gke) | ../../ | n/a |
 
 #### Resources
 
