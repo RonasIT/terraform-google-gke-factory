@@ -57,12 +57,12 @@ variable "node_pool_nodes_max_count" {
 }
 
 variable "cluster_issuer_email" {
-  description = "The email of the cluster issuer (works only if `install_nginx_ingress_and_cert_manager` set as true)"
+  description = "The email of the cluster issuer (works only if `install_cert_manager` set as true)"
   type        = string
 }
 
 variable "cluster_issuer_server" {
-  description = "The server of the cluster issuer (works only if `install_nginx_ingress_and_cert_manager` set as true)"
+  description = "The server of the cluster issuer (works only if `install_cert_manager` set as true)"
   type        = string
   default     = "https://acme-v02.api.letsencrypt.org/directory"
 }
@@ -85,20 +85,26 @@ variable "is_prometheus_metrics_enabled" {
   default     = false
 }
 
-variable "install_nginx_ingress_and_cert_manager" {
+variable "install_nginx_ingress" {
   description = "Install nginx ingress and cert manager"
   type        = bool
   default     = true
 }
 
+variable "install_cert_manager" {
+  description = "Install cert manager (works only if `install_nginx_ingress` set as true)"
+  type        = bool
+  default     = true
+}
+
 variable "cert_manager_additional_solvers" {
-  description = "Additional solvers for cert-manager (works only if `install_nginx_ingress_and_cert_manager` set as true)"
+  description = "Additional solvers for cert-manager (works only if `install_cert_manager` set as true)"
   type        = list(any)
   default     = []
 }
 
 variable "nginx_controller_additional_set" {
-  description = "Additional set for nginx-controller (works only if `install_nginx_ingress_and_cert_manager` set as true)"
+  description = "Additional set for nginx-controller (works only if `install_nginx_ingress` set as true)"
   type        = list(any)
   default     = []
 }

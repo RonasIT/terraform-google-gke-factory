@@ -69,8 +69,14 @@ variable "is_prometheus_metrics_enabled" {
   default     = false
 }
 
-variable "install_nginx_ingress_and_cert_manager" {
-  description = "Install nginx ingress and cert manager"
+variable "install_nginx_ingress" {
+  description = "Install nginx ingress"
+  type        = bool
+  default     = true
+}
+
+variable "install_cert_manager" {
+  description = "Install cert-manager (works only if nginx ingress is installed)"
   type        = bool
   default     = true
 }
