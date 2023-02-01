@@ -45,3 +45,15 @@ variable "authorized_networks" {
   default     = []
   type        = list(object({ cidr_block = string, display_name = string }))
 }
+
+variable "database_version" {
+  description = "The version of database"
+  default     = "POSTGRES_14"
+  type        = string
+}
+
+variable "disk_size" {
+  description = "The size of disk"
+  default     = 10
+  type        = number
+}

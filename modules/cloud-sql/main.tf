@@ -14,11 +14,11 @@ module "postgresql_production_private_access" {
 
 module "postgresql" {
   source  = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
-  version = "12.1.0"
+  version = "13.0.1"
 
   name                            = "${var.project_name}-${var.environment_name}"
   project_id                      = var.project_id
-  database_version                = "POSTGRES_14"
+  database_version                = var.database_version
   region                          = var.cluster_region
   zone                            = var.database_master_zone
   availability_type               = "REGIONAL"
@@ -28,6 +28,7 @@ module "postgresql" {
   db_collation                    = "en_US.UTF8"
   user_name                       = var.database_user
   create_timeout                  = "2h"
+  disk_size                       = var.disk_size
 
   ip_configuration = {
     ipv4_enabled        = length(var.authorized_networks) > 0 ? true : false
