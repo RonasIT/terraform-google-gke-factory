@@ -30,7 +30,7 @@ resource "google_project_service" "enable_container_api" {
 
 module "network" {
   source  = "terraform-google-modules/network/google"
-  version = "~> 5.1.0"
+  version = "~> 6.0.1"
 
   project_id   = var.project_id
   network_name = local.network_name
@@ -64,7 +64,7 @@ module "network" {
 
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
-  version = "~> 23.3.0"
+  version = "~> 25.0.0"
 
   project_id                        = var.project_id
   name                              = local.gke_name
@@ -118,7 +118,7 @@ module "gke" {
 
 module "cloud_router" {
   source  = "terraform-google-modules/cloud-router/google"
-  version = "~> 2.0.0"
+  version = "~> 4.0.0"
 
   project = var.project_id
   name    = local.cloud_router_name
@@ -132,7 +132,7 @@ module "cloud_router" {
 
 module "cloud_nat" {
   source  = "terraform-google-modules/cloud-nat/google"
-  version = "~> 2.2.1"
+  version = "~> 2.2.2"
 
   project_id = var.project_id
   region     = var.cluster_region
@@ -145,7 +145,7 @@ module "cloud_nat" {
 
 module "cert_manager" {
   source  = "terraform-iaac/cert-manager/kubernetes"
-  version = "2.4.2"
+  version = "2.5.0"
   count   = var.install_nginx_ingress_and_cert_manager ? 1 : 0
 
   cluster_issuer_email  = var.cluster_issuer_email
@@ -164,7 +164,7 @@ module "cert_manager" {
 
 resource "kubernetes_namespace" "nginx_controller_namespace" {
   count = var.install_nginx_ingress_and_cert_manager ? 1 : 0
-  
+
   metadata {
     name = local.nginx_controller_namespace_name
   }
@@ -176,7 +176,7 @@ resource "kubernetes_namespace" "nginx_controller_namespace" {
 
 module "nginx-controller" {
   source  = "terraform-iaac/nginx-controller/helm"
-  version = "2.0.4"
+  version = "2.1.0"
   count   = var.install_nginx_ingress_and_cert_manager ? 1 : 0
 
   ip_address = var.ingress_ip_address
