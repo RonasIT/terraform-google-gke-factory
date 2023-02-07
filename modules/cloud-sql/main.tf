@@ -14,7 +14,7 @@ module "postgresql_production_private_access" {
 
 module "postgresql" {
   source  = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
-  version = "13.0.1"
+  version = "14.0.0"
 
   name                            = "${var.project_name}-${var.environment_name}"
   project_id                      = var.project_id
