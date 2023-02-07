@@ -37,8 +37,8 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.35.0 |
-| <a name="requirement_google-beta"></a> [google-beta](#requirement\_google-beta) | 4.35.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 4.52.0 |
+| <a name="requirement_google-beta"></a> [google-beta](#requirement\_google-beta) | 4.52.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.7.1 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.15.0 |
 
@@ -46,7 +46,7 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.35.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.52.0 |
 
 #### Modules
 
@@ -58,18 +58,18 @@ terraform-docs -c .tfdocs-config.yml .
 
 | Name | Type |
 |------|------|
-| [google_compute_address.ingress_ip_address](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/compute_address) | resource |
-| [google_project_default_service_accounts.deprivilege_default_service_account](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/project_default_service_accounts) | resource |
-| [google_project_iam_binding.compute_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/project_iam_binding) | resource |
-| [google_project_iam_binding.storage_service_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/project_iam_binding) | resource |
-| [google_project_iam_member.ci_service_account_editor_iam](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/project_iam_member) | resource |
-| [google_project_iam_member.ci_service_account_token_creator_iam](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/project_iam_member) | resource |
-| [google_service_account.ci_service_account](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/service_account) | resource |
-| [google_service_account.storage_service_account](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/service_account) | resource |
-| [google_service_account_key.ci_service_account_key](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/service_account_key) | resource |
-| [google_service_account_key.storage_service_account_key](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/service_account_key) | resource |
-| [google_storage_bucket.artifacts_bucket](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/storage_bucket) | resource |
-| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/data-sources/project) | data source |
+| [google_compute_address.ingress_ip_address](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/compute_address) | resource |
+| [google_project_default_service_accounts.deprivilege_default_service_account](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/project_default_service_accounts) | resource |
+| [google_project_iam_binding.compute_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/project_iam_binding) | resource |
+| [google_project_iam_binding.storage_service_account_storage_iam](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/project_iam_binding) | resource |
+| [google_project_iam_member.ci_service_account_editor_iam](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/project_iam_member) | resource |
+| [google_project_iam_member.ci_service_account_token_creator_iam](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/project_iam_member) | resource |
+| [google_service_account.ci_service_account](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/service_account) | resource |
+| [google_service_account.storage_service_account](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/service_account) | resource |
+| [google_service_account_key.ci_service_account_key](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/service_account_key) | resource |
+| [google_service_account_key.storage_service_account_key](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/service_account_key) | resource |
+| [google_storage_bucket.artifacts_bucket](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/storage_bucket) | resource |
+| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/data-sources/project) | data source |
 
 #### Inputs
 

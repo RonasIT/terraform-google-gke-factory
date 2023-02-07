@@ -5,31 +5,31 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.35.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 4.52.0 |
 
 #### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.35.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.52.0 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_gke_development"></a> [gke\_development](#module\_gke\_development) | RonasIT/gke-factory/google//modules/gke-factory | ~> 3.0.0 |
-| <a name="module_gke_production"></a> [gke\_production](#module\_gke\_production) | RonasIT/gke-factory/google//modules/gke-factory | ~> 3.0.0 |
-| <a name="module_postgresql_production"></a> [postgresql\_production](#module\_postgresql\_production) | RonasIT/gke-factory/google//modules/cloud-sql | ~> 3.0.0 |
+| <a name="module_gke_development"></a> [gke\_development](#module\_gke\_development) | ../../modules/gke-factory | n/a |
+| <a name="module_gke_production"></a> [gke\_production](#module\_gke\_production) | ../../modules/gke-factory | n/a |
+| <a name="module_postgresql_production"></a> [postgresql\_production](#module\_postgresql\_production) | ../../modules/cloud-sql | n/a |
 
 #### Resources
 
 | Name | Type |
 |------|------|
-| [google_compute_address.ingress_ip_address_development](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/compute_address) | resource |
-| [google_compute_address.ingress_ip_address_production](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/compute_address) | resource |
-| [google_storage_bucket.artifacts_bucket_development](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/storage_bucket) | resource |
-| [google_storage_bucket.artifacts_bucket_production](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/resources/storage_bucket) | resource |
-| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/4.35.0/docs/data-sources/project) | data source |
+| [google_compute_address.ingress_ip_address_development](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/compute_address) | resource |
+| [google_compute_address.ingress_ip_address_production](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/compute_address) | resource |
+| [google_storage_bucket.artifacts_bucket_development](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/storage_bucket) | resource |
+| [google_storage_bucket.artifacts_bucket_production](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/resources/storage_bucket) | resource |
+| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/4.52.0/docs/data-sources/project) | data source |
 
 #### Inputs
 
