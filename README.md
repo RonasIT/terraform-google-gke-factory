@@ -1,4 +1,4 @@
-# Ronas IT GCP Project Factory
+# Terraform GCP cloud factory
 
 ## Setup
 
