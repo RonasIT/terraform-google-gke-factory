@@ -16,7 +16,7 @@ resource "google_compute_address" "ingress_ip_address_development" {
 }
 
 module "gke_development" {
-  source  = "../../modules/gke-factory"
+  source = "../../modules/gke-factory"
 
   project_id                    = var.project_id
   project_name                  = var.project_name
@@ -44,7 +44,7 @@ resource "google_compute_address" "ingress_ip_address_production" {
 }
 
 module "gke_production" {
-  source  = "../../modules/gke-factory"
+  source = "../../modules/gke-factory"
 
   project_id                    = var.project_id
   project_name                  = var.project_name
@@ -80,7 +80,7 @@ resource "google_storage_bucket" "artifacts_bucket_production" {
 // CloudSQL
 
 module "postgresql_production" {
-  source  = "../../modules/cloud-sql"
+  source = "../../modules/cloud-sql"
 
   project_id           = var.project_id
   project_name         = var.project_name
@@ -90,4 +90,12 @@ module "postgresql_production" {
   database_master_zone = var.database_master_zone_production
   disk_size            = 100
   database_version     = "POSTGRES_9_6"
+  availability_type    = "ZONAL"
+  additional_databases = [
+    {
+      name      = "extra_db",
+      charset   = "UTF8"
+      collation = "en_US.UTF8"
+    }
+  ]
 }

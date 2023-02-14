@@ -57,3 +57,20 @@ variable "disk_size" {
   default     = 10
   type        = number
 }
+
+variable "availability_type" {
+  description = "The availability type of database"
+  default     = "REGIONAL"
+  type        = string
+}
+
+variable "additional_databases" {
+  description = "A list of databases to be created in your cluster"
+  type = list(object({
+    name      = string
+    charset   = string
+    collation = string
+  }))
+  default = []
+}
+

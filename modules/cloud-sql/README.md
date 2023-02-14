@@ -35,7 +35,9 @@
 | <a name="input_environment_name"></a> [environment\_name](#input\_environment\_name) | The environment of the database | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The ID of the project | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the project | `string` | n/a | yes |
+| <a name="input_additional_databases"></a> [additional\_databases](#input\_additional\_databases) | A list of databases to be created in your cluster | <pre>list(object({<br>    name      = string<br>    charset   = string<br>    collation = string<br>  }))</pre> | `[]` | no |
 | <a name="input_authorized_networks"></a> [authorized\_networks](#input\_authorized\_networks) | The authorized networks to connect to database | `list(object({ cidr_block = string, display_name = string }))` | `[]` | no |
+| <a name="input_availability_type"></a> [availability\_type](#input\_availability\_type) | The availability type of database | `string` | `"REGIONAL"` | no |
 | <a name="input_database_name"></a> [database\_name](#input\_database\_name) | The name of database | `string` | `"pgdb"` | no |
 | <a name="input_database_user"></a> [database\_user](#input\_database\_user) | The user of database | `string` | `"pguser"` | no |
 | <a name="input_database_version"></a> [database\_version](#input\_database\_version) | The version of database | `string` | `"POSTGRES_14"` | no |

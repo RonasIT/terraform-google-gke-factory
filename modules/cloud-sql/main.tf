@@ -21,11 +21,12 @@ module "postgresql" {
   database_version                = var.database_version
   region                          = var.cluster_region
   zone                            = var.database_master_zone
-  availability_type               = "REGIONAL"
+  availability_type               = var.availability_type
   maintenance_window_update_track = "stable"
   db_name                         = var.database_name
   db_charset                      = "UTF8"
   db_collation                    = "en_US.UTF8"
+  additional_databases            = var.additional_databases
   user_name                       = var.database_user
   create_timeout                  = "2h"
   disk_size                       = var.disk_size
@@ -37,4 +38,6 @@ module "postgresql" {
     allocated_ip_range  = null
     authorized_networks = var.authorized_networks
   }
+
+
 }
