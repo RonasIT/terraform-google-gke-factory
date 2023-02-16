@@ -42,6 +42,7 @@
 | <a name="input_database_user"></a> [database\_user](#input\_database\_user) | The user of database | `string` | `"pguser"` | no |
 | <a name="input_database_version"></a> [database\_version](#input\_database\_version) | The version of database | `string` | `"POSTGRES_14"` | no |
 | <a name="input_disk_size"></a> [disk\_size](#input\_disk\_size) | The size of disk | `number` | `10` | no |
+| <a name="input_enable_private_access"></a> [enable\_private\_access](#input\_enable\_private\_access) | Whether or not to enable private access to the database | `bool` | `true` | no |
 
 #### Outputs
 

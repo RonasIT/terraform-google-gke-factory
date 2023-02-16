@@ -74,3 +74,9 @@ variable "additional_databases" {
   default = []
 }
 
+variable "enable_private_access" {
+  description = "Whether or not to enable private access to the database"
+  default     = true
+  type        = bool
+}
+

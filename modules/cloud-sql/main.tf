@@ -1,9 +1,11 @@
 resource "google_project_service" "enable_servicenetworking_api" {
+  count   = var.enable_private_access ? 1 : 0
   project = var.project_id
   service = "servicenetworking.googleapis.com"
 }
 
 module "postgresql_production_private_access" {
+  count       = var.enable_private_access ? 1 : 0
   source      = "GoogleCloudPlatform/sql-db/google//modules/private_service_access"
   project_id  = var.project_id
   vpc_network = var.cluster_network.network_name
