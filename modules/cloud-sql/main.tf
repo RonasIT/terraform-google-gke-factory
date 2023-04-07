@@ -32,6 +32,7 @@ module "postgresql" {
   user_name                       = var.database_user
   create_timeout                  = "2h"
   disk_size                       = var.disk_size
+  tier                            = var.tier
 
   ip_configuration = {
     ipv4_enabled        = length(var.authorized_networks) > 0 ? true : false

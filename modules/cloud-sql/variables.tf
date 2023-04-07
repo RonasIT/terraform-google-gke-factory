@@ -23,6 +23,11 @@ variable "cluster_network" {
   type        = object({ network_name = string, network_self_link = string })
 }
 
+variable "tier" {
+  description = "The tier for the master instance"
+  default     = "db-f1-micro"
+  type        = string
+}
 variable "database_master_zone" {
   description = "The zone of the master node"
   type        = string
