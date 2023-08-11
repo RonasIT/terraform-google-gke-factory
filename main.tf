@@ -200,6 +200,11 @@ module "nginx-controller" {
       name  = "cert-manager\\.io/cluster-issuer"
       value = module.cert_manager.cluster_issuer_name
       type  = "string"
+    },
+    {
+      name  = "controller.addHeaders"
+      value = "x-robots-tag: noindex"
+      type  = "string"
     }
   ])
 
