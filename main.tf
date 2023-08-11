@@ -166,7 +166,7 @@ resource "google_compute_address" "ingress_ip_address" {
 
 module "cert_manager" {
   source  = "terraform-iaac/cert-manager/kubernetes"
-  version = "2.4.2"
+  version = "2.5.1"
 
   cluster_issuer_email  = var.cluster_issuer_email
   cluster_issuer_server = var.cluster_issuer_server
@@ -190,7 +190,7 @@ resource "kubernetes_namespace" "nginx_controller_namespace" {
 
 module "nginx-controller" {
   source  = "terraform-iaac/nginx-controller/helm"
-  version = "2.0.4"
+  version = "2.2.2"
 
   ip_address = google_compute_address.ingress_ip_address.address
   namespace  = local.nginx_controller_namespace_name
