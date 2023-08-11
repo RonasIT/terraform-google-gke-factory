@@ -204,7 +204,6 @@ module "nginx-controller" {
     {
       name  = "controller.addHeaders"
       value = "{'x-robots-tag': 'noindex'}"
-      type = "map[string]string"
     }
   ])
 
