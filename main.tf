@@ -202,7 +202,7 @@ module "nginx-controller" {
       type  = "string"
     },
     {
-      name  = "cortroller.addHeaders.x-robots-tag"
+      name  = "controller.addHeaders.x-robots-tag"
       value = "noindex"
     }
   ])
