@@ -85,3 +85,24 @@ variable "enable_private_access" {
   type        = bool
 }
 
+variable "backup_configuration" {
+  description = "The backup_configuration settings subblock for the database setings"
+  type = object({
+    enabled                        = bool
+    start_time                     = string
+    location                       = string
+    point_in_time_recovery_enabled = bool
+    transaction_log_retention_days = string
+    retained_backups               = number
+    retention_unit                 = string
+  })
+  default = {
+    enabled                        = false
+    start_time                     = null
+    location                       = null
+    point_in_time_recovery_enabled = false
+    transaction_log_retention_days = null
+    retained_backups               = null
+    retention_unit                 = null
+  }
+}
