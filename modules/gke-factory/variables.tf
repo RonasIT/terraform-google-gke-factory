@@ -96,6 +96,7 @@ variable "nginx_controller_additional_set" {
       type  = "string"
     },
     {
+
       name  = "controller.resources.limits.memory"
       value = "175Mi"
       type  = "string"
@@ -116,4 +117,10 @@ variable "cluster_release_channel" {
     condition     = length(regexall("^(UNSPECIFIED|RAPID|REGULAR|STABLE)$", var.cluster_release_channel)) > 0
     error_message = "ERROR: Valid types are \"UNSPECIFIED\", \"RAPID\", \"REGULAR\" and \"STABLE\"!"
   }
+}
+
+variable "nat_ips" {
+  description = "NAT IPs"
+  type        = list(string)
+  default     = []
 }

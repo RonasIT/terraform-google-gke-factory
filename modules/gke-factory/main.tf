@@ -134,9 +134,10 @@ module "cloud_nat" {
   source  = "terraform-google-modules/cloud-nat/google"
   version = "~> 2.2.2"
 
-  project_id = var.project_id
-  region     = var.cluster_region
-  router     = local.cloud_router_name
+  project_id             = var.project_id
+  region                 = var.cluster_region
+  router                 = local.cloud_router_name
+  nat_ips                = var.nat_ips
 
   depends_on = [
     module.cloud_router
